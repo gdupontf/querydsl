@@ -33,7 +33,7 @@ public class FirebirdLiteralsSuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initFirebird();
-    Connections.initConfiguration(FirebirdTemplates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(FirebirdTemplates.builder().newLineToSingleSpace(true).build());
     Connections.getConfiguration().setUseLiterals(true);
   }
 }

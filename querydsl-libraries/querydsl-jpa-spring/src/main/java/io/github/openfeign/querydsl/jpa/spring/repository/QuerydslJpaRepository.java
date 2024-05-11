@@ -17,10 +17,9 @@ package io.github.openfeign.querydsl.jpa.spring.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
-import org.springframework.data.repository.history.RevisionRepository;
 
 /**
- * Convenience interface to allow pulling in {@link JpaRepository} and {@link RevisionRepository}
+ * Convenience interface to allow pulling in {@link JpaRepository} and {@link JPQLRepository}
  * functionality in one go.
  *
  * @author Oliver Gierke

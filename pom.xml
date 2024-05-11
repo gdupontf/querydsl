@@ -146,6 +146,8 @@
     <scala.version>2.11.12</scala.version>
     <asm.version>9.7</asm.version>
 
+    <record.builder.version>41</record.builder.version>
+
     <!-- Import-Package definitions for maven-bundle-plugin -->
     <osgi.import.package.root>*</osgi.import.package.root>
     <osgi.import.package>${osgi.import.package.root}</osgi.import.package>

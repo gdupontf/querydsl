@@ -35,7 +35,7 @@ public class CUBRIDLiteralsSuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initCubrid();
-    Connections.initConfiguration(CUBRIDTemplates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(CUBRIDTemplates.builder().newLineToSingleSpace(true).build());
     Connections.getConfiguration().setUseLiterals(true);
   }
 }

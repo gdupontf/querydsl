@@ -37,6 +37,6 @@ public class DB2SuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initDB2();
-    Connections.initConfiguration(DB2Templates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(DB2Templates.builder().newLineToSingleSpace(true).build());
   }
 }

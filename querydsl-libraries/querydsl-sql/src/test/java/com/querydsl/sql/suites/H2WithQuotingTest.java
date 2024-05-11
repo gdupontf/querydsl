@@ -33,6 +33,7 @@ public class H2WithQuotingTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initH2();
-    Connections.initConfiguration(H2Templates.builder().quote().newLineToSingleSpace().build());
+    Connections.initConfiguration(
+        H2Templates.builder().quote(true).newLineToSingleSpace(true).build());
   }
 }

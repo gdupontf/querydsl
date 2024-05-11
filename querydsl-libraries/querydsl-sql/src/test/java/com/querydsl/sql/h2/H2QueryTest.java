@@ -14,7 +14,7 @@ public class H2QueryTest {
 
   @Before
   public void setUp() {
-    query = new SQLQuery(H2Templates.builder().newLineToSingleSpace().build());
+    query = new SQLQuery(H2Templates.builder().newLineToSingleSpace(true).build());
   }
 
   @Test

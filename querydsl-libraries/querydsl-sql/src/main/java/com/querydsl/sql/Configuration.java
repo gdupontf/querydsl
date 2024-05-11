@@ -26,10 +26,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 import org.jetbrains.annotations.Nullable;
 
@@ -67,6 +64,59 @@ public final class Configuration {
   private boolean useLiterals = false;
 
   private StatementOptions statementOptions;
+
+  public static final class Builder {
+    private SQLTemplates templates;
+    private StatementOptions statementOptions = StatementOptions.DEFAULT;
+    private SQLExceptionTranslator exceptionTranslator;
+    private final Set<SQLListener> listeners = new HashSet<>();
+
+    private Builder(SQLTemplates templates) {
+      this.templates = Objects.requireNonNull(templates);
+    }
+
+    public static Builder builder(SQLTemplates templates) {
+      return new Builder(templates);
+    }
+
+    public Builder maxFieldSize(Integer maxFieldSize) {
+      statementOptions = statementOptions.withMaxFieldSize(maxFieldSize);
+      return this;
+    }
+
+    public Builder maxRows(Integer maxRows) {
+      statementOptions = statementOptions.withMaxRows(maxRows);
+      return this;
+    }
+
+    public Builder queryTimeout(Integer queryTimeout) {
+      statementOptions = statementOptions.withQueryTimeout(queryTimeout);
+      return this;
+    }
+
+    public Builder fetchSize(Integer fetchSize) {
+      statementOptions = statementOptions.withFetchSize(fetchSize);
+      return this;
+    }
+
+    public Builder exceptionTranslator(SQLExceptionTranslator sqlExceptionTranslator) {
+      exceptionTranslator = sqlExceptionTranslator;
+      return this;
+    }
+
+    public Builder listener(SQLListener sqlListener) {
+      listeners.add(sqlListener);
+      return this;
+    }
+
+    public Configuration build() {
+      Configuration configuration = new Configuration(templates, statementOptions);
+      configuration.setExceptionTranslator(exceptionTranslator);
+      listeners.forEach(configuration::addListener);
+
+      return configuration;
+    }
+  }
 
   /**
    * Create a new Configuration instance

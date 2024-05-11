@@ -33,6 +33,6 @@ public class HsqldbSuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initHSQL();
-    Connections.initConfiguration(HSQLDBTemplates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(HSQLDBTemplates.builder().newLineToSingleSpace(true).build());
   }
 }

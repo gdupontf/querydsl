@@ -20,7 +20,7 @@ public class PostgreSQLQueryTest {
   public void setUp() {
     query =
         new PostgreSQLQuery<Void>(
-            null, PostgreSQLTemplates.builder().newLineToSingleSpace().build());
+            null, PostgreSQLTemplates.builder().newLineToSingleSpace(true).build());
   }
 
   @Test

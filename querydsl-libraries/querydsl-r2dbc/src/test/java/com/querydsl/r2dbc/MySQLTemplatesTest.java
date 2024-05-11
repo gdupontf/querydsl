@@ -28,7 +28,7 @@ public class MySQLTemplatesTest extends AbstractSQLTemplatesTest {
   @SuppressWarnings("unchecked")
   @Test
   public void test() {
-    SQLTemplates templates = MySQLTemplates.builder().printSchema().build();
+    SQLTemplates templates = MySQLTemplates.builder().printSchema(true).build();
     Configuration conf = new Configuration(templates);
     System.out.println(new R2DBCQuery(conf).from(survey1).toString());
   }

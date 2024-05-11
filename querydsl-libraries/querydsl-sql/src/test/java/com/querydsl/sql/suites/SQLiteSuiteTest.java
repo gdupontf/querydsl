@@ -33,6 +33,6 @@ public class SQLiteSuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initSQLite();
-    Connections.initConfiguration(SQLiteTemplates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(SQLiteTemplates.builder().newLineToSingleSpace(true).build());
   }
 }

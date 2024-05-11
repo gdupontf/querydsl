@@ -23,7 +23,7 @@ public class PostgreSQLSuiteTest extends AbstractSuite {
       // NOTE: replacing the templates with a non-quoting one
       previous = configuration;
       configuration =
-          new Configuration(PostgreSQLTemplates.builder().newLineToSingleSpace().build());
+          new Configuration(PostgreSQLTemplates.builder().newLineToSingleSpace(true).build());
       super.setUp();
     }
 
@@ -57,6 +57,6 @@ public class PostgreSQLSuiteTest extends AbstractSuite {
   public static void setUp() throws Exception {
     Connections.initPostgreSQL();
     Connections.initConfiguration(
-        PostgreSQLTemplates.builder().quote().newLineToSingleSpace().build());
+        PostgreSQLTemplates.builder().quote(true).newLineToSingleSpace(true).build());
   }
 }

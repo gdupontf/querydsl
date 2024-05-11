@@ -35,6 +35,7 @@
     <!-- Languages -->
     <module>querydsl-scala</module>
     <module>querydsl-kotlin</module>
+    <module>querydsl-spring-boot-starter</module>
   </modules>
 
   <dependencyManagement>

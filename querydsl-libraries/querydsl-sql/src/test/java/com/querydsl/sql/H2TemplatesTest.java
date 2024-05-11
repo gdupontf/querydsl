@@ -27,7 +27,7 @@ public class H2TemplatesTest extends AbstractSQLTemplatesTest {
 
   @Test
   public void builder() {
-    SQLTemplates templates = H2Templates.builder().quote().newLineToSingleSpace().build();
+    SQLTemplates templates = H2Templates.builder().quote(true).newLineToSingleSpace(true).build();
 
     assertThat(templates).isNotNull();
   }

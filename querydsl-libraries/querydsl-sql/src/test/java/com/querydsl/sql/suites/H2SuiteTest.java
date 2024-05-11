@@ -35,6 +35,6 @@ public class H2SuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initH2();
-    Connections.initConfiguration(H2Templates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(H2Templates.builder().newLineToSingleSpace(true).build());
   }
 }

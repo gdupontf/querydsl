@@ -34,7 +34,7 @@ public class UnionSubQueryTest {
   private static final SimpleExpression<Integer> three =
       Expressions.numberTemplate(Integer.class, "3");
 
-  private SQLTemplates templates = H2Templates.builder().newLineToSingleSpace().build();
+  private SQLTemplates templates = H2Templates.builder().newLineToSingleSpace(true).build();
 
   private SQLSerializer serializer = new SQLSerializer(new Configuration(templates));
 

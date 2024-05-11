@@ -487,7 +487,7 @@ public class SQLSerializerTest {
   @Test
   public void schemaInWhere() {
     Configuration derbyWithPrintSchema =
-        new Configuration(DerbyTemplates.builder().printSchema().build());
+        new Configuration(DerbyTemplates.builder().printSchema(true).build());
 
     QEmployee e = QEmployee.employee;
     SQLDeleteClause delete =
@@ -505,6 +505,6 @@ public class SQLSerializerTest {
 
   private SQLQuery<?> queryForMYSQLTemplate() {
     return new SQLQuery<Void>(
-        MySQLTemplates.builder().printSchema().newLineToSingleSpace().build());
+        MySQLTemplates.builder().printSchema(true).newLineToSingleSpace(true).build());
   }
 }

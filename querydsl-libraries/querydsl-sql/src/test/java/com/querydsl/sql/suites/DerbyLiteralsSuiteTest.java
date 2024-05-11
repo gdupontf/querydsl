@@ -33,7 +33,7 @@ public class DerbyLiteralsSuiteTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initDerby();
-    Connections.initConfiguration(DerbyTemplates.builder().newLineToSingleSpace().build());
+    Connections.initConfiguration(DerbyTemplates.builder().newLineToSingleSpace(true).build());
     Connections.getConfiguration().setUseLiterals(true);
   }
 }

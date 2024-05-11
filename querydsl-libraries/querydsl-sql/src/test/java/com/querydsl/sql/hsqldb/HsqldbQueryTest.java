@@ -14,7 +14,7 @@ public class HsqldbQueryTest {
 
   @Before
   public void setUp() {
-    query = new SQLQuery(HSQLDBTemplates.builder().newLineToSingleSpace().build());
+    query = new SQLQuery(HSQLDBTemplates.builder().newLineToSingleSpace(true).build());
   }
 
   @Test

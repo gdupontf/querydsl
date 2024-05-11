@@ -2784,7 +2784,7 @@ public abstract class SelectBase extends AbstractBaseTest {
 
   @Test
   public void statementOptions() {
-    StatementOptions options = StatementOptions.builder().setFetchSize(15).setMaxRows(150).build();
+    StatementOptions options = StatementOptions.builder().fetchSize(15).maxRows(150).build();
     var query =
         query()
             .from(employee)

@@ -319,17 +319,17 @@ public abstract class AbstractSQLQuery<T, Q extends AbstractSQLQuery<T, Q>>
 
   private PreparedStatement getPreparedStatement(String queryString) throws SQLException {
     PreparedStatement statement = connection().prepareStatement(queryString);
-    if (statementOptions.getFetchSize() != null) {
-      statement.setFetchSize(statementOptions.getFetchSize());
+    if (statementOptions.fetchSize() != null) {
+      statement.setFetchSize(statementOptions.fetchSize());
     }
-    if (statementOptions.getMaxFieldSize() != null) {
-      statement.setMaxFieldSize(statementOptions.getMaxFieldSize());
+    if (statementOptions.maxFieldSize() != null) {
+      statement.setMaxFieldSize(statementOptions.maxFieldSize());
     }
-    if (statementOptions.getQueryTimeout() != null) {
-      statement.setQueryTimeout(statementOptions.getQueryTimeout());
+    if (statementOptions.queryTimeout() != null) {
+      statement.setQueryTimeout(statementOptions.queryTimeout());
     }
-    if (statementOptions.getMaxRows() != null) {
-      statement.setMaxRows(statementOptions.getMaxRows());
+    if (statementOptions.maxRows() != null) {
+      statement.setMaxRows(statementOptions.maxRows());
     }
     return statement;
   }
@@ -711,13 +711,6 @@ public abstract class AbstractSQLQuery<T, Q extends AbstractSQLQuery<T, Q>>
    * @return the query itslef for method chaining
    */
   public Q fetchSize(int fetchSize) {
-    StatementOptions newStatementOptions =
-        StatementOptions.builder()
-            .setFetchSize(fetchSize)
-            .setQueryTimeout(this.statementOptions.getQueryTimeout())
-            .setMaxFieldSize(this.statementOptions.getMaxFieldSize())
-            .setMaxRows(this.statementOptions.getMaxRows())
-            .build();
-    return statementOptions(newStatementOptions);
+    return statementOptions(statementOptions.withFetchSize(fetchSize));
   }
 }

@@ -33,6 +33,7 @@ public class MySQLWithQuotingTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initMySQL();
-    Connections.initConfiguration(MySQLTemplates.builder().quote().newLineToSingleSpace().build());
+    Connections.initConfiguration(
+        MySQLTemplates.builder().quote(true).newLineToSingleSpace(true).build());
   }
 }

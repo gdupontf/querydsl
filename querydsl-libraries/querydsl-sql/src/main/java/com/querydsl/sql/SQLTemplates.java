@@ -76,18 +76,18 @@ public class SQLTemplates extends Templates {
 
     protected char escape = '\\';
 
-    public Builder printSchema() {
-      printSchema = true;
+    public Builder printSchema(boolean printSchema) {
+      this.printSchema = printSchema;
       return this;
     }
 
-    public Builder quote() {
-      quote = true;
+    public Builder quote(boolean quote) {
+      this.quote = quote;
       return this;
     }
 
-    public Builder newLineToSingleSpace() {
-      newLineToSingleSpace = true;
+    public Builder newLineToSingleSpace(boolean newLineToSingleSpace) {
+      this.newLineToSingleSpace = newLineToSingleSpace;
       return this;
     }
 

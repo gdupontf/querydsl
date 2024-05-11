@@ -440,6 +440,6 @@ public class SQLSerializerTest {
 
   private R2DBCQuery<?> queryForMYSQLTemplate() {
     return new R2DBCQuery<Void>(
-        MySQLTemplates.builder().printSchema().newLineToSingleSpace().build());
+        MySQLTemplates.builder().printSchema(true).newLineToSingleSpace(true).build());
   }
 }

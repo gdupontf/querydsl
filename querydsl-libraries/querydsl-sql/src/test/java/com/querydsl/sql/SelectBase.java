@@ -2098,7 +2098,7 @@ public abstract class SelectBase extends AbstractBaseTest {
   @IncludeIn(H2)
   public void standardTest_turkish() {
     Locale defaultLocale = Locale.getDefault();
-    Locale.setDefault(Locale.of("tr", "TR"));
+    Locale.setDefault(Locale.forLanguageTag("tr-TR"));
     try {
       standardTest();
     } finally {
@@ -2570,7 +2570,7 @@ public abstract class SelectBase extends AbstractBaseTest {
   public void statementOptions() {
 
     // Set a query factory with a predefined StatementOptions
-    StatementOptions options1 = StatementOptions.builder().setFetchSize(24).setMaxRows(500).build();
+    StatementOptions options1 = StatementOptions.builder().fetchSize(24).maxRows(500).build();
     Connection connection = Connections.getConnection();
     Configuration configuration = Connections.getConfiguration();
     configuration = new Configuration(configuration.getTemplates(), options1);
@@ -2594,7 +2594,7 @@ public abstract class SelectBase extends AbstractBaseTest {
     query.select(employee.id).fetch();
 
     // Check that we can override the statement options on a per-query basis
-    StatementOptions options2 = StatementOptions.builder().setFetchSize(15).setMaxRows(150).build();
+    StatementOptions options2 = StatementOptions.builder().fetchSize(15).maxRows(150).build();
     query = sqlQueryFactory.from(employee).orderBy(employee.id.asc()).statementOptions(options2);
 
     query.addListener(

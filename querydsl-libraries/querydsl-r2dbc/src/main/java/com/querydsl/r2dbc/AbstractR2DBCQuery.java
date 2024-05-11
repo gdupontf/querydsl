@@ -190,17 +190,17 @@ public abstract class AbstractR2DBCQuery<T, Q extends AbstractR2DBCQuery<T, Q>>
 
   private Statement getStatement(Connection connection, String queryString) {
     Statement statement = connection.createStatement(queryString);
-    if (statementOptions.getFetchSize() != null) {
-      statement.fetchSize(statementOptions.getFetchSize());
+    if (statementOptions.fetchSize() != null) {
+      statement.fetchSize(statementOptions.fetchSize());
     }
-    if (statementOptions.getMaxFieldSize() != null) {
-      statement.fetchSize(statementOptions.getMaxFieldSize());
+    if (statementOptions.maxFieldSize() != null) {
+      statement.fetchSize(statementOptions.maxFieldSize());
     }
     //        if (statementOptions.getQueryTimeout() != null) {
     //            connection.setQueryTimeout(statementOptions.getQueryTimeout());
     //        }
-    if (statementOptions.getMaxRows() != null) {
-      statement.fetchSize(statementOptions.getMaxRows());
+    if (statementOptions.maxRows() != null) {
+      statement.fetchSize(statementOptions.maxRows());
     }
     return statement;
   }

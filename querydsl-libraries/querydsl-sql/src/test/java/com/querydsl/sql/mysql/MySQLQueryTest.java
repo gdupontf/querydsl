@@ -28,7 +28,7 @@ public class MySQLQueryTest {
 
   @Before
   public void setUp() {
-    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace().build());
+    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace(true).build());
     query.from(survey);
     query.orderBy(survey.name.asc());
     query.getMetadata().setProjection(survey.name);
@@ -79,7 +79,7 @@ public class MySQLQueryTest {
 
   @Test
   public void forceIndex() {
-    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace().build());
+    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace(true).build());
     query.from(survey);
     query.forceIndex("col1_index");
     query.orderBy(survey.name.asc());
@@ -95,7 +95,7 @@ public class MySQLQueryTest {
 
   @Test
   public void ignoreIndex() {
-    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace().build());
+    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace(true).build());
     query.from(survey);
     query.ignoreIndex("col1_index");
     query.orderBy(survey.name.asc());
@@ -111,7 +111,7 @@ public class MySQLQueryTest {
 
   @Test
   public void useIndex() {
-    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace().build());
+    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace(true).build());
     query.from(survey);
     query.useIndex("col1_index");
     query.orderBy(survey.name.asc());
@@ -127,7 +127,7 @@ public class MySQLQueryTest {
 
   @Test
   public void useIndex2() {
-    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace().build());
+    query = new MySQLQuery<Void>(null, MySQLTemplates.builder().newLineToSingleSpace(true).build());
     query.from(survey);
     query.useIndex("col1_index", "col2_index");
     query.orderBy(survey.name.asc());

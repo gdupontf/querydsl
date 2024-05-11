@@ -33,6 +33,7 @@ public class OracleWithQuotingTest extends AbstractSuite {
   @BeforeClass
   public static void setUp() throws Exception {
     Connections.initOracle();
-    Connections.initConfiguration(OracleTemplates.builder().quote().newLineToSingleSpace().build());
+    Connections.initConfiguration(
+        OracleTemplates.builder().quote(true).newLineToSingleSpace(true).build());
   }
 }
